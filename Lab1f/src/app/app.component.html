@@ -1,12 +1,15 @@
-<h1>Hello world</h1>
 
 
-<a href="./Servlet1">Servlet1</a>
-<br>
-<button (click)="getGamepads()">Get entities</button>
+<div class="container" >
+    <h1>Server test</h1>
+    <button (click)="getGamepads()">Get entities</button>
+	<div class="card" id="c1" *ngFor="let ent of gamepadsList">
+		<h1 class="name" id="name">Title: {{ent.title}}</h1>
+		<p class="temp">price: {{ent.price}}</p>
+		<p class="desc">weight: {{ent.weight}}</p>
+	  </div>
+    <a href="./Servlet1">Servlet1</a>
+</div>
 
-<ul>
-    <li *ngFor="let ent of gamepadsList">
-        Title: {{ent.title}}, price: {{ent.price}}, weight: {{ent.weight}}
-    </li>
-</ul>
+
+
