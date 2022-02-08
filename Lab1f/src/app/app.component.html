@@ -2,7 +2,7 @@
 
 <div class="container" >
     <h1>Server test</h1>
-    <button (click)="getGamepads()">Get entities</button>
+    <button (click)="getGamepads()">Get gamepad</button>
 	<div class="card" id="c1" *ngFor="let ent of gamepadsList">
 		<h1 class="name" id="name">Title: {{ent.title}}</h1>
 		<p class="temp">price: {{ent.price}}</p>
