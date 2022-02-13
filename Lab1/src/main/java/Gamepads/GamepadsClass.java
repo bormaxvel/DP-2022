@@ -1,6 +1,14 @@
 package Gamepads;
 
-public class GamepadsClass {
+import java.io.Serializable;
+
+public class GamepadsClass implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	
 	String title;
 	int price;
 	float weight;
