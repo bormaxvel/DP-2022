@@ -7,7 +7,6 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { Section2CardsComponent } from './section2-cards/section2-cards.component';
-import { Section3FunctionalityComponent } from './section3-functionality/section3-functionality.component';
 
 
 @NgModule({
@@ -15,12 +14,9 @@ import { Section3FunctionalityComponent } from './section3-functionality/section
     AppComponent,
     HeaderComponent,
     Section2CardsComponent,
-    Section3FunctionalityComponent,
-
   ],
   imports: [
-    BrowserModule,
-    
+    BrowserModule,  
     HttpClientModule,
     FormsModule
   ],
