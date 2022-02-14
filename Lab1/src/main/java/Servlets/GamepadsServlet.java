@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import Crud.Lab2CrudInterface;
+import Gamepads.GamepadsClass;
 
 /**
  * Servlet implementation class GamepadsServlet
@@ -41,7 +42,10 @@ public class GamepadsServlet extends HttpServlet {
 	 * @see HttpServlet#doPut(HttpServletRequest, HttpServletResponse)
 	 */
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		String title = request.getParameter("title");
+		int price = Integer.parseInt(request.getParameter("price"));
+		float weight = Float.parseFloat(request.getParameter("weight"));
+		lab2Crud.updateGamepads(new GamepadsClass(title, price, weight));
 	}
 
 }
