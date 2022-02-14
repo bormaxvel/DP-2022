@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Gamepads } from '../gamepads';
 import { InfoForCard } from '../info-for-card';
 import { MainLogicService } from '../main-logic.service';
 
@@ -12,26 +13,27 @@ export class Section2CardsComponent implements OnInit {
   constructor(private service:MainLogicService) { 
 }
 
-  info: InfoForCard[]=[];
+
 
   ngOnInit(): void {
     this.changeVisibility(0);
     this.changeVisibility(1);
     this.changeVisibility(2);
-    this.ToSubscribe();
+    this.getGamepads();
   }
 
   visibility:string[] = ["","",""];
 
+  gamepadsList:Gamepads[]=[];
 
-  public ToSubscribe(): InfoForCard[]{
-    this.service.getLaba().subscribe(
-    (labs)=>{
-      console.log(labs);
-      this.info = labs;
-    }
-    );
-    return (this.info);
+
+
+  getGamepads():void{
+    this.service.getGamepads().subscribe(
+      (gmpds)=>{
+        this.gamepadsList=gmpds;
+      }
+    )
   }
 
   changeVisibility(n:number){
