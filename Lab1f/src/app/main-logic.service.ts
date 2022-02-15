@@ -17,6 +17,14 @@ export class MainLogicService {
     return this.http.get<Gamepads[]>(this.url);
   }
 
+  // putGamepads(hero: Hero): Observable<Hero> {
+  //   return this.http.put<Hero>(this.heroesUrl, hero, httpOptions)
+  //     .pipe(
+  //       catchError(this.handleError('updateHero', hero))
+  //     );
+  // }
+
+
 
 
   public inputs:string[] = ["", "", ""]

@@ -36,6 +36,9 @@ export class Section2CardsComponent implements OnInit {
     )
   }
 
+
+
+  
   changeVisibility(n:number){
     if (this.visibility[n] == ""){
       this.visibility[n] = "invisible"
