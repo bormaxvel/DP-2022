@@ -2,13 +2,15 @@
     <div class="block" id="block2">
         <h1>Gallery</h1>
         <div class="cards">
-            <div class="card" *ngFor="let ent of gamepadsList">
+            <div class="card" *ngFor="let ent of usersList">
                 
                 <!-- <img class="card-img" id="card-img1" src="" alt=""> -->
-                <span class=card-title><strong>{{ent.title}}</strong></span>
-                <p>{{ent.price}}</p>
-                <p class="bordertop" id="{{visibility[0]}}">{{ent.weight}}</p>
-                <img class="moreinfobtn" (click) = "changeVisibility(0)" src="\assets\morebtn.png" alt="">
+                <span (click)="onSelect(ent)" class=card-title><strong>{{ent.name}}</strong></span>
+                <p>{{ent.id}}</p>
+                <p class="bordertop" >{{ent.age}}</p>
+                <span (click)="deleteUser(ent)"> X </span>
+                <!-- <p class="bordertop" id="{{visibility[0]}}">{{ent.age}}</p> -->
+                <!-- <img class="moreinfobtn" (click) = "changeVisibility(0)" src="\assets\morebtn.png" alt=""> -->
             </div>
             <!-- <div class="card">
      
@@ -31,14 +33,66 @@
 </div>
 <div class="section" id="Third">
     <div class="block">
-        <h1>Functs</h1>
-        <form>      
+        <h1>ADD</h1>
+        <form #form1="ngForm" (ngSubmit)="addUser(form1.value)">
+            <input type="hidden" id="name" class="feedback-input" name="id"  ngModel="-1">
+            <input type="text" id="email" class="feedback-input" name="name"  ngModel><br><br>
+            <input type="number" class="feedback-input" name="age" ngModel=23><br><br>
+            <input type="submit" value="Add User">
+        </form>
+        <h1>EDIT</h1>
+        <form #form2="ngForm" (ngSubmit)="updateUser(form2.value)">
+            <input type="text" id="name" class="feedback-input" name="id"  ngModel="1">
+            <input type="text" id="email" class="feedback-input" name="name"  ngModel><br><br>
+            <input type="number" class="feedback-input" name="age" ngModel=23><br><br>
+            <input type="submit" value="Add User">
+        </form>
+
+        <!-- <form #form2="ngForm" (ngSubmit)="updateUser(form2.value)">
+            <input type="hidden" id="name" class="feedback-input" name="id"  ngModel="-1">
+            <input type="text" id="email" class="feedback-input" name="name"  ngModel = "selectedUser.id"><br><br>
+            <input type="number" class="feedback-input" name="age" [(ngModel)]="selectedUser.id"><br><br>
+            <input type="submit" value="Add User">
+        </form> -->
+        <!-- <form>      
             <input name="name" type="text" id="name" class="feedback-input" placeholder="Name" />   
             <input name="price" type="text" id="email" class="feedback-input" placeholder="Price" />
             <textarea name="Description" class="feedback-input" id="text" placeholder="Description"></textarea>
             <input  type="submit" value="SUBMIT"/>
-        </form>
+        </form> -->
     </div>
 </div>
+
+
+
+
+<h2>{{title}}</h2>
+<!-- <form #form1="ngForm" (ngSubmit)="addUser(form1.value)">
+    <input type="hidden" name="id"  ngModel="-1">
+    <input type="text" name="name"  ngModel><br><br>
+    <input type="number" name="age" ngModel=23><br><br>
+    <input type="submit" value="Add User">
+</form> -->
+
+<ul>
+    <li *ngFor="let u of usersList" 
+    (click)="onSelect(u)"
+    >{{u.id}}. {{u.name}} age: {{u.age}}
+    <span (click)="deleteUser(u)"> X </span>
+    </li>
+</ul>
+
+
+
+<!-- 
+<h3>Update User</h3>
+
+<input type="hidden" [(ngModel)]="selectedUser.id">
+<input type="text" [(ngModel)]="user.name"><br><br>
+<input type="number" [(ngModel)]="user.age"><br><br>
+<button (click)="updateUser()">Update user</button> -->
+
+<!-- 
+<app-update [user]="selectedUser" (updated)="updateUsers()"></app-update> -->
 
 <!-- (click)="onSubmit()" -->

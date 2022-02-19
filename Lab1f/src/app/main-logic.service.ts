@@ -1,30 +1,39 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { InfoForCard } from './info-for-card';
+import { BehaviorSubject, Observable } from 'rxjs';
+
 import { Gamepads } from './gamepads';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MainLogicService {
+  list = new BehaviorSubject<Gamepads[]>([])
+  // url:string="http://localhost:3000/users"
+  url:string="http://localhost:8080/users/Servlet1"
+  // USERS:Gamepads[]=[{id:1,name:"Roman", age:49},{id:2,name:"Olena", age:29}]
 
-  url:string = "http://localhost:8080/Lab1/Servlet1"
+  constructor(private http:HttpClient) { }
 
-  constructor(private http:HttpClient) {}
-
-  getGamepads():Observable<Gamepads[]>{
+  getUsers():Observable<Gamepads[]>{
     return this.http.get<Gamepads[]>(this.url);
   }
 
-  // putGamepads(hero: Hero): Observable<Hero> {
-  //   return this.http.put<Hero>(this.heroesUrl, hero, httpOptions)
-  //     .pipe(
-  //       catchError(this.handleError('updateHero', hero))
-  //     );
-  // }
+  postUser(user:Gamepads):Observable<Gamepads[]>{
+    return this.http.post<Gamepads[]>(this.url,user);
+  }
 
+  putUser(user:Gamepads):Observable<Gamepads[]>{
+    return this.http.put<Gamepads[]>(this.url+"/"+user.id,user);
+  }
 
+  deleteUser(user:Gamepads):Observable<Gamepads[]>{
+    return this.http.delete<Gamepads[]>(this.url+"/"+user.id);
+  }
+
+  setList(list:Gamepads[]){
+    this.list.next(list);
+  }
 
 
   public inputs:string[] = ["", "", ""]
