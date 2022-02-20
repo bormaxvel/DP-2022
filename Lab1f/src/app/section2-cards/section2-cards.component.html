@@ -6,9 +6,10 @@
                 
                 <img class="card-img" id="card-img{{ent.id}}" src="/assets/card.jpg" alt="">
                 <span (click)="onSelect(ent)" class=card-title><strong>{{ent.name}}</strong></span>
-                <p>{{ent.id}}</p>
-                <p class="bordertop" >Price: {{ent.age}}</p>
-                <span (click)="deleteUser(ent)"> X </span>
+                <p  id="price">Price: {{ent.age}}$</p>
+                <p class="bordertop">{{ent.id}}</p>
+                
+                <b><span (click)="deleteUser(ent)" id="xxx"> X </span></b>
                 <!-- <p class="bordertop" id="{{visibility[0]}}">{{ent.age}}</p> -->
                 <!-- <img class="moreinfobtn" (click) = "changeVisibility(0)" src="\assets\morebtn.png" alt=""> -->
             </div>
