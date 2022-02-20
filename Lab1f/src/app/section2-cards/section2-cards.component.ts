@@ -64,6 +64,7 @@ export class Section2CardsComponent implements OnInit {
     this.service.deleteUser(user).subscribe(
       ()=>{
         this.updateUsers();
+
       }
     );
   }

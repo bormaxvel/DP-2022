@@ -5,30 +5,15 @@
             <div class="card" *ngFor="let ent of usersList">
                 
                 <img class="card-img" id="card-img{{ent.id}}" src="/assets/card.jpg" alt="">
-                <span (click)="onSelect(ent)" class=card-title><strong>{{ent.name}}</strong></span>
+                <span  class=card-title><strong>{{ent.name}}</strong></span>
                 <p  id="price">Price: {{ent.age}}$</p>
                 <p class="bordertop">{{ent.id}}</p>
                 
-                <b><span (click)="deleteUser(ent)" id="xxx"> X </span></b>
+                <b><div class="interactpartofcard"><img (click)="onSelect(ent)" src="/assets/edit.png" alt=""><span (click)="deleteUser(ent)" id="xxx"> X </span></div></b>
                 <!-- <p class="bordertop" id="{{visibility[0]}}">{{ent.age}}</p> -->
                 <!-- <img class="moreinfobtn" (click) = "changeVisibility(0)" src="\assets\morebtn.png" alt=""> -->
             </div>
-            <!-- <div class="card">
-     
-                <img class="card-img" id="card-img1" src="{{info[1].photo_link}}" alt="">
-                <span class=card-title><strong>{{info[1].name}}</strong></span>
-                <p>{{info[1].shortDescription}}</p>
-                <p class="bordertop" id="{{visibility[1]}}">{{info[1].info}}</p>
-                <img class="moreinfobtn" (click) = "changeVisibility(1)" src="\assets\morebtn.png" alt="">
-            </div> -->
-            <!-- <div class="card">
-
-                <img class="card-img" id="card-img1" src="{{info[2].photo_link}}" alt="">
-                <span class=card-title><strong>{{info[2].name}}</strong></span>
-                <p>{{info[2].shortDescription}}</p>
-                <p class="bordertop" id="{{visibility[2]}}">{{info[2].info}}</p>
-                <img class="moreinfobtn" (click) = "changeVisibility(2)" src="\assets\morebtn.png" alt="">
-            </div> -->
+            
         </div>
     </div>
 </div>
@@ -51,7 +36,7 @@
             <input type="hidden" id="name" class="feedback-input" name="id"  ngModel="{{selectedUser.id}}">
             <input type="text" id="email" class="feedback-input" name="name"  ngModel="{{selectedUser.name}}"><br><br>
             <input type="number" class="feedback-input" name="age" ngModel="{{selectedUser.age}}"><br><br>
-            <input type="submit" value="Edit User">
+            <input type="submit"  value="Edit User">
         </form> 
         </div>
         <!-- <form #form2="ngForm" (ngSubmit)="updateUser(form2.value)">
