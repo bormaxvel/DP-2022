@@ -1,29 +1,27 @@
 package crud;
 
-import users.User;
-import fileIO.fileIOInterface;
-
 import java.util.List;
 
+import fileIO.FileIOInterface;
 import fileIO.FileIO;
-
+import users.User;
 
 public class FileCrud implements CrudInterface {
 
-	fileIOInterface fio;
+	FileIOInterface fio;
 	public FileCrud() {
 		this.fio = new FileIO();
 	}
 	
 	@Override
-	public List<User> readGamepads() {
-		
+	public List<User> readList() {
+		// TODO Auto-generated method stub
 		return (List<User>) fio.loadFromFile();
 	}
 
 	@Override
-	public void updateGamepads(List<User> Gamepads) {
-		fio.saveToFile(Gamepads);
+	public void updateList(List<User> user) {
+		fio.saveToFile(user);
 
 	}
 
