@@ -40,6 +40,7 @@ public class Servlet1 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		lu = CrudInterface.readList();
 		setAccessControlHeaders(response);
 		response.setContentType("application/json");
 		response.getWriter().println(lu);
@@ -53,6 +54,7 @@ public class Servlet1 extends HttpServlet {
 		User user = Helpers.userParse(request);
 		user.setId(Helpers.getNextId(lu));
 		lu.add(user);
+		CrudInterface.updateList(lu);
 		doGet(request, response);
 	}
 

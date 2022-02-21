@@ -2,6 +2,7 @@ package servlets;
 
 //import crud.FileCrud;
 import crud.CrudInterface;
+import crud.FileCrud;
 //import mock.Lab2CrudMock;
 
 public class ServletConfig implements ServletConfigInterface {
@@ -9,7 +10,7 @@ public class ServletConfig implements ServletConfigInterface {
 	CrudInterface l2ci;
 
 	public ServletConfig() {
-		//this.l2ci = new FileCrud();
+		this.l2ci = new FileCrud();
 	}
 
 	public void setL2ci(CrudInterface l2ci) {
