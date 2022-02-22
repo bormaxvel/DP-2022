@@ -9,9 +9,9 @@ public class Mock {
 	
 	
 	public Mock () {		
-		this.userList.add(new Gamepad(0,"Roman",40, "bla bla blam", "bla bla blam"));
-		this.userList.add(new Gamepad(1,"Olena",24, "bla bla blam", "bla bla blam"));
-		this.userList.add(new Gamepad(2,"Stephan",19, "bla bla blam", "bla bla blam"));
+		this.userList.add(new Gamepad(0,"Dualsense",57, "DualSense, a innovative wireless controller for PS5 with tactile feedback and adaptive triggers", "bla bla blam"));
+		this.userList.add(new Gamepad(1,"Xbox elite",100, "Xbox Elite Wireless Controller Series 2 features over 30 new ways to play like a pro", "bla bla blam"));
+		this.userList.add(new Gamepad(2,"Nintendo pro",48, "Nintendo Switch Pro Controller is a game controller manufactured and released by Nintendo", "bla bla blam"));
 	}
 
 	public List<Gamepad> getUserList() {

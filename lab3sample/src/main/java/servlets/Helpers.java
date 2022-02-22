@@ -33,7 +33,7 @@ public class Helpers {
 		user.setId(jsonElement.getAsJsonObject().get("id").getAsInt());
 		user.setName(jsonElement.getAsJsonObject().get("name").getAsString());
 		user.setPrice(jsonElement.getAsJsonObject().get("price").getAsInt());
-		user.setDescription(jsonElement.getAsJsonObject().get("price").getAsString());
+		user.setDescription(jsonElement.getAsJsonObject().get("description").getAsString());
 		user.setLink(jsonElement.getAsJsonObject().get("link").getAsString());
 		
 		return user;

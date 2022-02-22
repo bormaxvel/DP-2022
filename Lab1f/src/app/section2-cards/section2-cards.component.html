@@ -7,7 +7,7 @@
                 <img class="card-img" id="card-img{{ent.id}}" src="/assets/card.jpg" alt="">
                 <span  class=card-title><strong>{{ent.name}}</strong></span>
                 <p  id="price">Price: {{ent.price}}$</p>
-                <p class="bordertop">{{ent.id}}</p>
+                <p class="bordertop">{{ent.description}}</p>
                 
                 <b><div class="interactpartofcard"><img (click)="onSelect(ent)" src="/assets/edit.png" alt=""><span (click)="deleteUser(ent)" id="xxx"> X </span></div></b>
                 <!-- <p class="bordertop" id="{{visibility[0]}}">{{ent.price}}</p> -->
@@ -24,10 +24,10 @@
         <h1>ADD</h1>
         <form #form1="ngForm" (ngSubmit)="addUser(form1.value)">
             <input type="hidden" id="name" class="feedback-input" name="id"  ngModel="-1">
-            <input type="text" id="email" class="feedback-input" name="name"  ngModel="New Gamepad"><br><br>
-            <input type="number" class="feedback-input" name="price" ngModel=23><br><br>
-            <input type="text" class="feedback-input" name="description" ngModel="bla">
-            <input type="text" class="feedback-input" name="link" ngModel="bla">
+            <input type="text" id="email" class="feedback-input" name="name"  ngModel="New Gamepad">
+            <input type="number" class="feedback-input" name="price" ngModel=23>
+            <textarea type="text" class="feedback-input" name="description" ngModel="A gamepad is a device used to control the gameplay of video games on the game console. "></textarea>
+            <input type="hidden" class="feedback-input" name="link" ngModel="">
             <input type="submit" value="Add User">
         </form>
         </div>
@@ -36,22 +36,14 @@
         <h1>EDIT</h1>
         <form  #form2="ngForm" (ngSubmit)="updateUser(form2.value)">
             <input type="hidden" id="name" class="feedback-input" name="id"  ngModel="{{selectedUser.id}}">
-            <input type="text" id="email" class="feedback-input" name="name"  ngModel="{{selectedUser.name}}"><br><br>
-            <input type="number" class="feedback-input" name="price" ngModel="{{selectedUser.price}}"><br><br>
+            <input type="text" id="email" class="feedback-input" name="name"  ngModel="{{selectedUser.name}}">
+            <input type="number" class="feedback-input" name="price" ngModel="{{selectedUser.price}}">
+            <textarea class="feedback-input" name="description" ngModel="{{selectedUser.description}}"></textarea>
+            <input type="hidden" class="feedback-input" name="link" ngModel="{{selectedUser.link}}">
             <input type="submit"  value="Edit User">
         </form> 
         </div>
-        <!-- <form #form2="ngForm" (ngSubmit)="updateUser(form2.value)">
-            <input type="hidden" id="name" class="feedback-input" name="id"  ngModel="-1">
-            <input type="text" id="email" class="feedback-input" name="name"  ngModel = "selectedUser.id"><br><br>
-            <input type="number" class="feedback-input" name="age" [(ngModel)]="selectedUser.id"><br><br>
-            <input type="submit" value="Add User">
-        </form> -->
-        <!-- <form>      
-            <input name="name" type="text" id="name" class="feedback-input" placeholder="Name" />   
-            <input name="price" type="text" id="email" class="feedback-input" placeholder="Price" />
-            <textarea name="Description" class="feedback-input" id="text" placeholder="Description"></textarea>
-            <input  type="submit" value="SUBMIT"/>
-        </form> -->
     </div>
 </div>
+
+
