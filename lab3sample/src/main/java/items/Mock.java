@@ -9,9 +9,9 @@ public class Mock {
 	
 	
 	public Mock () {		
-		this.userList.add(new Gamepad(0,"Roman",40));
-		this.userList.add(new Gamepad(1,"Olena",24));
-		this.userList.add(new Gamepad(2,"Stephan",19));
+		this.userList.add(new Gamepad(0,"Roman",40, "bla bla blam", "bla bla blam"));
+		this.userList.add(new Gamepad(1,"Olena",24, "bla bla blam", "bla bla blam"));
+		this.userList.add(new Gamepad(2,"Stephan",19, "bla bla blam", "bla bla blam"));
 	}
 
 	public List<Gamepad> getUserList() {

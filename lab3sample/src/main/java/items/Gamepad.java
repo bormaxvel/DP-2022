@@ -11,6 +11,8 @@ public class Gamepad implements Serializable{
 	int id;
 	String name;
 	int price;
+	String description;
+	String link;
 	
 	
 	public Gamepad() {
@@ -18,10 +20,42 @@ public class Gamepad implements Serializable{
 	}
 	
 	
-	public Gamepad(int id, String name, int price) {
+	public Gamepad(int id, String name, int price, String description, String link) {
 		this.id = id;
 		this.name = name;
 		this.price = price;
+		this.description = description;
+		this.link = link;
+	}
+
+
+	public int getPrice() {
+		return price;
+	}
+
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+
+	public String getDescription() {
+		return description;
+	}
+
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+
+	public String getLink() {
+		return link;
+	}
+
+
+	public void setLink(String link) {
+		this.link = link;
 	}
 
 
@@ -37,17 +71,12 @@ public class Gamepad implements Serializable{
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getAge() {
-		return price;
-	}
-	public void setAge(int price) {
-		this.price = price;
-	}
+
 
 
 	@Override
 	public String toString() {
-		return "{\"id\":"+id+",\"name\":\""+name+"\", \"price\":"+price+"}";
+		return "{\"id\":"+id+",\"name\":\""+name+"\", \"price\":"+price+",\"description\":\""+description+"\",\"link\":\""+link+"\"}";
 	}
 	
 	
