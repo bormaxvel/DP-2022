@@ -10,101 +10,64 @@ import { MainLogicService } from '../main-logic.service';
 })
 export class Section2CardsComponent implements OnInit {
 
-  title:string="List of Users";
-  usersList:Gamepads[]=[];
+  title:string="List of Items";
+  itemsList:Gamepads[]=[];
   showAddForm:boolean=false;
-  selectedUser?:Gamepads;
+  selectedItem?:Gamepads;
 
   id:number = 1;
 
   constructor(private service:MainLogicService) { }
 
   ngOnInit(): void {
-    this.updateUsers();
+    this.updateItems();
   }
 
-  updateUsers(){
-    this.service.getUsers().subscribe(
-      (users)=>{
-        this.usersList=users;
-        this.service.setList(users);
+  updateItems(){
+    this.service.getItems().subscribe(
+      (items)=>{
+        this.itemsList=items;
+        this.service.setList(items);
       }
     );
   }
 
-  addUser(user:Gamepads){
-    this.service.postUser(user).subscribe(
-      (user)=>{
-        // console.log(user);
-        this.updateUsers();
+  addItem(item:Gamepads){
+    this.service.postItem(item).subscribe(
+      (item)=>{
+        // console.log(item);
+        this.updateItems();
       }
     );
   }
 
-  updateUser(user:Gamepads){
+  updateItem(item:Gamepads){
     
-      this.service.putUser(user).subscribe(
+      this.service.putItem(item).subscribe(
       ()=>{
-        this.updateUsers();      
+        this.updateItems();      
       }
     );
 
   }
 
-  onSelect(user:Gamepads){
-    console.log(user);
-    if(this.selectedUser && user.id==this.selectedUser.id){
-      this.selectedUser=undefined;
+  onSelect(item:Gamepads){
+    console.log(item);
+    if(this.selectedItem && item.id==this.selectedItem.id){
+      this.selectedItem=undefined;
     } else {
-      this.selectedUser=user;
+      this.selectedItem=item;
     }
   }
 
-  deleteUser(user:Gamepads){
-    this.service.deleteUser(user).subscribe(
+  deleteItem(item:Gamepads){
+    this.service.deleteItem(item).subscribe(
       ()=>{
-        this.updateUsers();
+        this.updateItems();
 
       }
     );
   }
-
-
-
-
-  // ngOnInit(): void {
-  //   this.changeVisibility(0);
-  //   this.changeVisibility(1);
-  //   this.changeVisibility(2);
-  //   this.getGamepads();
-  // }
-
-  // visibility:string[] = ["","",""];
-
-  // gamepadsList:Gamepads[]=[];
-
-
-
-  // getGamepads():void{
-  //   this.service.getUsers().subscribe(
-  //     (gmpds)=>{
-  //       this.gamepadsList=gmpds;
-  //     }
-  //   )
-  // }
-
-
-
-  
-  // changeVisibility(n:number){
-  //   if (this.visibility[n] == ""){
-  //     this.visibility[n] = "invisible"
-  //     console.log(this.visibility[n])
-  //   }
-  //   else{
-  //     this.visibility[n] = ""
-  //     console.log(this.visibility[n])
-  //   }
   }
 
 

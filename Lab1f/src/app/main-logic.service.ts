@@ -15,19 +15,19 @@ export class MainLogicService {
 
   constructor(private http:HttpClient) { }
 
-  getUsers():Observable<Gamepads[]>{
+  getItems():Observable<Gamepads[]>{
     return this.http.get<Gamepads[]>(this.url);
   }
 
-  postUser(user:Gamepads):Observable<Gamepads[]>{
+  postItem(user:Gamepads):Observable<Gamepads[]>{
     return this.http.post<Gamepads[]>(this.url,user);
   }
 
-  putUser(user:Gamepads):Observable<Gamepads[]>{
+  putItem(user:Gamepads):Observable<Gamepads[]>{
     return this.http.put<Gamepads[]>(this.url+"/"+user.id,user);
   }
 
-  deleteUser(user:Gamepads):Observable<Gamepads[]>{
+  deleteItem(user:Gamepads):Observable<Gamepads[]>{
     return this.http.delete<Gamepads[]>(this.url+"/"+user.id);
   }
 

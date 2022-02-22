@@ -2,14 +2,14 @@
     <div class="block" id="block2">
         <h1>Gallery</h1>
         <div class="cards">
-            <div class="card" *ngFor="let ent of usersList">
+            <div class="card" *ngFor="let ent of itemsList">
                 
                 <img class="card-img" id="card-img{{ent.id}}" src="/assets/card.jpg" alt="">
                 <span  class=card-title><strong>{{ent.name}}</strong></span>
                 <p  id="price">Price: {{ent.price}}$</p>
                 <p class="bordertop">{{ent.description}}</p>
                 
-                <b><div class="interactpartofcard"><img (click)="onSelect(ent)" src="/assets/edit.png" alt=""><span (click)="deleteUser(ent)" id="xxx"> X </span></div></b>
+                <b><div class="interactpartofcard"><img (click)="onSelect(ent)" src="/assets/edit.png" alt=""><span (click)="deleteItem(ent)" id="xxx"> X </span></div></b>
                 <!-- <p class="bordertop" id="{{visibility[0]}}">{{ent.price}}</p> -->
                 <!-- <img class="moreinfobtn" (click) = "changeVisibility(0)" src="\assets\morebtn.png" alt=""> -->
             </div>
@@ -22,7 +22,7 @@
         
         <div class="interactblock">
         <h1>ADD</h1>
-        <form #form1="ngForm" (ngSubmit)="addUser(form1.value)">
+        <form #form1="ngForm" (ngSubmit)="addItem(form1.value)">
             <input type="hidden" id="name" class="feedback-input" name="id"  ngModel="-1">
             <input type="text" id="email" class="feedback-input" placeholder="Name" name="name"  ngModel="New Gamepad">
             <input type="number" class="feedback-input" placeholder="Price" name="price" ngModel=23>
@@ -32,14 +32,14 @@
         </form>
         </div>
 
-        <div class="interactblock" *ngIf="selectedUser">
+        <div class="interactblock" *ngIf="selectedItem">
         <h1>EDIT</h1>
-        <form  #form2="ngForm" (ngSubmit)="updateUser(form2.value)">
-            <input type="hidden" id="name" class="feedback-input" name="id"  ngModel="{{selectedUser.id}}">
-            <input type="text" id="email" class="feedback-input" placeholder="Name" name="name"  ngModel="{{selectedUser.name}}">
-            <input type="number" class="feedback-input" placeholder="Price"  name="price" ngModel="{{selectedUser.price}}">
-            <textarea class="feedback-input" placeholder="Description" name="description" ngModel="{{selectedUser.description}}"></textarea>
-            <input type="hidden" class="feedback-input" name="link" ngModel="{{selectedUser.link}}">
+        <form  #form2="ngForm" (ngSubmit)="updateItem(form2.value)">
+            <input type="hidden" id="name" class="feedback-input" name="id"  ngModel="{{selectedItem.id}}">
+            <input type="text" id="email" class="feedback-input" placeholder="Name" name="name"  ngModel="{{selectedItem.name}}">
+            <input type="number" class="feedback-input" placeholder="Price"  name="price" ngModel="{{selectedItem.price}}">
+            <textarea class="feedback-input" placeholder="Description" name="description" ngModel="{{selectedItem.description}}"></textarea>
+            <input type="hidden" class="feedback-input" name="link" ngModel="{{selectedItem.link}}">
             <input type="submit"  value="Edit Gamepad">
         </form> 
         </div>
