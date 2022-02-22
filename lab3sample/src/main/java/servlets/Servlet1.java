@@ -30,6 +30,7 @@ public class Servlet1 extends HttpServlet {
         super();
         this.servletConfig = new ServletConfig();
         this.CrudInterface = servletConfig.GetCrud();
+        
     }
 	/**
      * @see HttpServlet#HttpServlet()
@@ -40,6 +41,7 @@ public class Servlet1 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		CrudInterface.updateList(lu);
 		lu = CrudInterface.readList();
 		setAccessControlHeaders(response);
 		response.setContentType("application/json");
@@ -54,7 +56,7 @@ public class Servlet1 extends HttpServlet {
 		User user = Helpers.userParse(request);
 		user.setId(Helpers.getNextId(lu));
 		lu.add(user);
-		CrudInterface.updateList(lu);
+		//CrudInterface.updateList(lu);
 		doGet(request, response);
 	}
 

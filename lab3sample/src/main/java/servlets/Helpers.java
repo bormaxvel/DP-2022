@@ -38,7 +38,7 @@ public class Helpers {
 	
 	public static int getNextId(List<User> list) {
 		int maxId = 0;
-		
+		if (list == null) return 0;
 		Iterator<User> iterator = list.iterator();
 		while(iterator.hasNext()) {
 			int currentId = iterator.next().getId();
