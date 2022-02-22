@@ -1,8 +1,8 @@
-package users;
+package items;
 
 import java.io.Serializable;
 
-public class User implements Serializable{
+public class Gamepad implements Serializable{
 	
 	/**
 	 * 
@@ -10,18 +10,18 @@ public class User implements Serializable{
 	private static final long serialVersionUID = 1L;
 	int id;
 	String name;
-	int age;
+	int price;
 	
 	
-	public User() {
+	public Gamepad() {
 		
 	}
 	
 	
-	public User(int id, String name, int age) {
+	public Gamepad(int id, String name, int price) {
 		this.id = id;
 		this.name = name;
-		this.age = age;
+		this.price = price;
 	}
 
 
@@ -38,16 +38,16 @@ public class User implements Serializable{
 		this.name = name;
 	}
 	public int getAge() {
-		return age;
+		return price;
 	}
-	public void setAge(int age) {
-		this.age = age;
+	public void setAge(int price) {
+		this.price = price;
 	}
 
 
 	@Override
 	public String toString() {
-		return "{\"id\":"+id+",\"name\":\""+name+"\", \"age\":"+age+"}";
+		return "{\"id\":"+id+",\"name\":\""+name+"\", \"price\":"+price+"}";
 	}
 	
 	

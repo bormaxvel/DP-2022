@@ -9,8 +9,8 @@ import com.google.gson.JsonIOException;
 import com.google.gson.JsonParser;
 import com.google.gson.JsonSyntaxException;
 
+import items.Gamepad;
 import jakarta.servlet.http.HttpServletRequest;
-import users.User;
 
 public class Helpers {
 	
@@ -27,8 +27,8 @@ public class Helpers {
 		return jsonElement;
 	}
 	
-	public static User userParse(HttpServletRequest request) {
-		User user = new User();
+	public static Gamepad userParse(HttpServletRequest request) {
+		Gamepad user = new Gamepad();
 		JsonElement jsonElement = bodyParse(request);
 		user.setId(jsonElement.getAsJsonObject().get("id").getAsInt());
 		user.setName(jsonElement.getAsJsonObject().get("name").getAsString());
@@ -36,10 +36,10 @@ public class Helpers {
 		return user;
 	}
 	
-	public static int getNextId(List<User> list) {
+	public static int getNextId(List<Gamepad> list) {
 		int maxId = 0;
 		if (list == null) return 0;
-		Iterator<User> iterator = list.iterator();
+		Iterator<Gamepad> iterator = list.iterator();
 		while(iterator.hasNext()) {
 			int currentId = iterator.next().getId();
 			if(currentId>maxId) maxId=currentId;
@@ -47,12 +47,12 @@ public class Helpers {
 		return maxId+1;
 	}
 	
-	public static int getIndexByUserId(int id,List<User> list) {
+	public static int getIndexByUserId(int id,List<Gamepad> list) {
 		int listId = id;
 		
-		Iterator<User> iterator = list.iterator();
+		Iterator<Gamepad> iterator = list.iterator();
 		while(iterator.hasNext()) {
-			User temp =iterator.next();
+			Gamepad temp =iterator.next();
 			if(temp.getId()==listId) { 
 				listId=list.indexOf(temp);
 				break;

@@ -3,8 +3,8 @@ package crud;
 import java.util.List;
 
 import fileIO.FileIOInterface;
+import items.Gamepad;
 import fileIO.FileIO;
-import users.User;
 
 public class FileCrud implements CrudInterface {
 
@@ -14,13 +14,13 @@ public class FileCrud implements CrudInterface {
 	}
 	
 	@Override
-	public List<User> readList() {
+	public List<Gamepad> readList() {
 		// TODO Auto-generated method stub
-		return (List<User>) fio.loadFromFile();
+		return (List<Gamepad>) fio.loadFromFile();
 	}
 
 	@Override
-	public void updateList(List<User> user) {
+	public void updateList(List<Gamepad> user) {
 		fio.saveToFile(user);
 
 	}

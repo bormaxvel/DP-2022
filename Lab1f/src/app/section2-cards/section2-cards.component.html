@@ -6,11 +6,11 @@
                 
                 <img class="card-img" id="card-img{{ent.id}}" src="/assets/card.jpg" alt="">
                 <span  class=card-title><strong>{{ent.name}}</strong></span>
-                <p  id="price">Price: {{ent.age}}$</p>
+                <p  id="price">Price: {{ent.price}}$</p>
                 <p class="bordertop">{{ent.id}}</p>
                 
                 <b><div class="interactpartofcard"><img (click)="onSelect(ent)" src="/assets/edit.png" alt=""><span (click)="deleteUser(ent)" id="xxx"> X </span></div></b>
-                <!-- <p class="bordertop" id="{{visibility[0]}}">{{ent.age}}</p> -->
+                <!-- <p class="bordertop" id="{{visibility[0]}}">{{ent.price}}</p> -->
                 <!-- <img class="moreinfobtn" (click) = "changeVisibility(0)" src="\assets\morebtn.png" alt=""> -->
             </div>
             
@@ -35,7 +35,7 @@
         <form  #form2="ngForm" (ngSubmit)="updateUser(form2.value)">
             <input type="hidden" id="name" class="feedback-input" name="id"  ngModel="{{selectedUser.id}}">
             <input type="text" id="email" class="feedback-input" name="name"  ngModel="{{selectedUser.name}}"><br><br>
-            <input type="number" class="feedback-input" name="age" ngModel="{{selectedUser.age}}"><br><br>
+            <input type="number" class="feedback-input" name="age" ngModel="{{selectedUser.price}}"><br><br>
             <input type="submit"  value="Edit User">
         </form> 
         </div>

@@ -2,10 +2,10 @@ package crud;
 
 import java.util.List;
 
-import users.User;
+import items.Gamepad;
 
 public interface CrudInterface {
-	public List<User> readList();
-	public void updateList(List<User> user);
+	public List<Gamepad> readList();
+	public void updateList(List<Gamepad> user);
 
 }

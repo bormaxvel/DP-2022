@@ -5,12 +5,12 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import users.Mock;
-import users.User;
 
 import java.io.IOException;
 import java.util.List;
 
+import items.Mock;
+import items.Gamepad;
 import servlets.ServletConfig;
 
 /**
@@ -19,7 +19,7 @@ import servlets.ServletConfig;
 @WebServlet("/Servlet1/*")
 public class Servlet1 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	List<User> lu = new Mock().getUserList();
+	List<Gamepad> lu = new Mock().getUserList();
        
     
 	
@@ -54,7 +54,7 @@ public class Servlet1 extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		setAccessControlHeaders(response);
-		User user = Helpers.userParse(request);
+		Gamepad user = Helpers.userParse(request);
 		user.setId(Helpers.getNextId(lu));
 		lu.add(user);
 		//CrudInterface.updateList(lu);
@@ -67,7 +67,7 @@ public class Servlet1 extends HttpServlet {
 	
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		setAccessControlHeaders(response);
-		User user = Helpers.userParse(request);
+		Gamepad user = Helpers.userParse(request);
 		int id = Integer.parseInt(request.getPathInfo().substring(1));
 		System.out.println(id);
 		response.setContentType("application/json");
