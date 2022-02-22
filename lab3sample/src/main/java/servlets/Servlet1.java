@@ -41,6 +41,7 @@ public class Servlet1 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		CrudInterface.updateList(lu);
 		lu = CrudInterface.readList();
 		setAccessControlHeaders(response);
