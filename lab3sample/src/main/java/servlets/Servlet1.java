@@ -1,17 +1,19 @@
 package servlets;
 
+import java.io.IOException;
+import java.sql.SQLException;
+
+import items.Gamepad;
+import jakarta.servlet.Servlet;
+import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jdbc.Connect;
+import jdbc.SqlCRUD;
 
-import java.io.IOException;
-import java.util.List;
-
-import items.Mock;
-import items.Gamepad;
-import servlets.ServletConfig;
 
 /**
  * Servlet implementation class Servlet1
@@ -19,20 +21,32 @@ import servlets.ServletConfig;
 @WebServlet("/Servlet1/*")
 public class Servlet1 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	List<Gamepad> lu = new Mock().getUserList();
-       
-    
 	
-	ServletConfigInterface servletConfig;
-	crud.CrudInterface CrudInterface;
+	LabCRUDInterface<Gamepad> crud = new SqlCRUD();
 	
-	public Servlet1() {
-        super();
-        this.servletConfig = new ServletConfig();
-        this.CrudInterface = servletConfig.GetCrud();
-        
-    }
+		
+
+	public void init(ServletConfig config) throws ServletException {
+		// TODO Auto-generated method stub	
+		
+		crud = new SqlCRUD();
+		
+	}
+
 	/**
+	 * @see Servlet#destroy()
+	 */
+	public void destroy() {
+		// TODO Auto-generated method stub
+		try {
+			((SqlCRUD) crud).getConnection().close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+       
+    /**
      * @see HttpServlet#HttpServlet()
      */
    
@@ -42,11 +56,10 @@ public class Servlet1 extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		CrudInterface.updateList(lu);
-		lu = CrudInterface.readList();
 		setAccessControlHeaders(response);
 		response.setContentType("application/json");
-		response.getWriter().println(lu);
+//		System.out.println(((SqlCRUD) crud).getConnection());
+		response.getWriter().println(crud.read());
 	}
 
 	/**
@@ -55,9 +68,7 @@ public class Servlet1 extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		setAccessControlHeaders(response);
 		Gamepad user = Helpers.userParse(request);
-		user.setId(Helpers.getNextId(lu));
-		lu.add(user);
-		//CrudInterface.updateList(lu);
+		crud.create(user);
 		doGet(request, response);
 	}
 
@@ -69,10 +80,8 @@ public class Servlet1 extends HttpServlet {
 		setAccessControlHeaders(response);
 		Gamepad user = Helpers.userParse(request);
 		int id = Integer.parseInt(request.getPathInfo().substring(1));
-		System.out.println(id);
 		response.setContentType("application/json");
-		int index = Helpers.getIndexByUserId(id, lu);
-		lu.set(index,user);
+		crud.update(id, user);
 		doGet(request, response);
 	}
 
@@ -83,10 +92,9 @@ public class Servlet1 extends HttpServlet {
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		setAccessControlHeaders(response);
 		int id = Integer.parseInt(request.getPathInfo().substring(1));
-		System.out.println(id);
+		
 		response.setContentType("application/json");
-		int index = Helpers.getIndexByUserId(id, lu);
-		lu.remove(index);
+		crud.delete(id);
 		doGet(request, response);
 	}
 
