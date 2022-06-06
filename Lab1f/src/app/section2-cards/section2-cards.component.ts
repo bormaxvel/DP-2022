@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Gamepads } from '../gamepads';
-
+import { Rest1 } from '../rest1';
 import { MainLogicService } from '../main-logic.service';
 
 @Component({
@@ -11,7 +11,9 @@ import { MainLogicService } from '../main-logic.service';
 export class Section2CardsComponent implements OnInit {
 
   title:string="List of Items";
+
   itemsList:Gamepads[]=[];
+
   showAddForm:boolean=false;
   selectedItem?:Gamepads;
 
@@ -25,9 +27,9 @@ export class Section2CardsComponent implements OnInit {
 
   updateItems(){
     this.service.getItems().subscribe(
-      (items)=>{
-        this.itemsList=items;
-        this.service.setList(items);
+      (Rest1)=>{
+        this.itemsList=Rest1._embedded.gamepads;
+        //this.service.setList(items);
       }
     );
   }
@@ -52,12 +54,12 @@ export class Section2CardsComponent implements OnInit {
   }
 
   onSelect(item:Gamepads){
-    console.log(item);
-    if(this.selectedItem && item.id==this.selectedItem.id){
-      this.selectedItem=undefined;
-    } else {
-      this.selectedItem=item;
-    }
+    // console.log(item);
+    // if(this.selectedItem && item.id==this.selectedItem.id){
+    //   this.selectedItem=undefined;
+    // } else {
+    //   this.selectedItem=item;
+    // }
   }
 
   deleteItem(item:Gamepads){

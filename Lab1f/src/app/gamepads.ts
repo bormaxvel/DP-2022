@@ -1,7 +1,14 @@
 export interface Gamepads {
-	id:number;
-    name:string;
-    price:number;
-    description:string;
-    link:string;
+        "name" : string;
+        "price" : number;
+        "description" : string;
+        "link" : string;
+        "_links" : {
+          "self" : {
+            "href" : string;
+          },
+          "gamepad" : {
+            "href" : string;
+          }
+        }
 }

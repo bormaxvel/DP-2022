@@ -4,7 +4,7 @@
         <div class="cards">
             <div class="card" *ngFor="let ent of itemsList">
                 
-                <img class="card-img" id="card-img{{ent.id}}" src="/assets/card.jpg" alt="">
+                <img class="card-img" id="card-img{{ent}}" src="/assets/card.jpg" alt="">
                 <span  class=card-title><strong>{{ent.name}}</strong></span>
                 <p  id="price">Price: {{ent.price}}$</p>
                 <p class="bordertop">{{ent.description}}</p>
@@ -35,7 +35,7 @@
         <div class="interactblock" *ngIf="selectedItem">
         <h1>EDIT</h1>
         <form  #form2="ngForm" (ngSubmit)="updateItem(form2.value)">
-            <input type="hidden" id="name" class="feedback-input" name="id"  ngModel="{{selectedItem.id}}">
+            <input type="hidden" id="name" class="feedback-input" name="id"  ngModel="{{selectedItem}}">
             <input type="text" id="email" class="feedback-input" placeholder="Name" name="name"  ngModel="{{selectedItem.name}}">
             <input type="number" class="feedback-input" placeholder="Price"  name="price" ngModel="{{selectedItem.price}}">
             <textarea class="feedback-input" placeholder="Description" name="description" ngModel="{{selectedItem.description}}"></textarea>
