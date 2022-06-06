@@ -45,6 +45,9 @@ export class Section2CardsComponent implements OnInit {
 
   updateItem(item:Gamepads){
     
+    console.log(item);
+    item._links =this.selectedItem?._links!;
+    
       this.service.putItem(item).subscribe(
       ()=>{
         this.updateItems();      

@@ -35,7 +35,7 @@
         <div class="interactblock" *ngIf="selectedItem">
         <h1>EDIT</h1>
         <form  #form2="ngForm" (ngSubmit)="updateItem(form2.value)">
-            <input type="hidden" id="name" class="feedback-input" name="id"  ngModel="{{selectedItem._links.gamepad}}">
+            <!-- <input type="hidden" id="name" class="feedback-input" name="id"  ngModel="{{selectedItem._links.gamepad}}"> -->
             <input type="text" id="email" class="feedback-input" placeholder="Name" name="name"  ngModel="{{selectedItem.name}}">
             <input type="number" class="feedback-input" placeholder="Price"  name="price" ngModel="{{selectedItem.price}}">
             <textarea class="feedback-input" placeholder="Description" name="description" ngModel="{{selectedItem.description}}"></textarea>

@@ -27,7 +27,7 @@ export class MainLogicService {
 
   putItem(user:Gamepads):Observable<Gamepads[]>{
     // return this.http.put<Gamepads[]>(this.url+"/"+user,user);
-    return this.http.put<Gamepads[]>(this.url+"/"+user._links.gamepad,user);
+    return this.http.put<Gamepads[]>(user._links.gamepad.href,user);
   }
 
   deleteItem(user:Gamepads):Observable<Gamepads[]>{
