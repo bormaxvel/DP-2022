@@ -26,13 +26,13 @@ export class MainLogicService {
   }
 
   putItem(user:Gamepads):Observable<Gamepads[]>{
-    return this.http.put<Gamepads[]>(this.url+"/"+user,user);
-    // return this.http.put<Gamepads[]>(this.url+"/"+user.id,user);
+    // return this.http.put<Gamepads[]>(this.url+"/"+user,user);
+    return this.http.put<Gamepads[]>(this.url+"/"+user._links.gamepad,user);
   }
 
   deleteItem(user:Gamepads):Observable<Gamepads[]>{
-    return this.http.delete<Gamepads[]>(this.url+"/"+user);
-    //return this.http.delete<Gamepads[]>(this.url+"/"+user.id);
+    // return this.http.delete<Gamepads[]>(this.url+"/"+user);
+    return this.http.delete<Gamepads[]>(this.url+"/"+user._links.gamepad);
   }
 
   setList(list:Gamepads[]){

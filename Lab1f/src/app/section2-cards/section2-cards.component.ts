@@ -54,12 +54,12 @@ export class Section2CardsComponent implements OnInit {
   }
 
   onSelect(item:Gamepads){
-    // console.log(item);
-    // if(this.selectedItem && item.id==this.selectedItem.id){
-    //   this.selectedItem=undefined;
-    // } else {
-    //   this.selectedItem=item;
-    // }
+    console.log(item);
+    if(this.selectedItem && item._links.gamepad==this.selectedItem._links.gamepad){
+      this.selectedItem=undefined;
+    } else {
+      this.selectedItem=item;
+    }
   }
 
   deleteItem(item:Gamepads){
