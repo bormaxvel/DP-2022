@@ -32,7 +32,7 @@ export class MainLogicService {
 
   deleteItem(user:Gamepads):Observable<Gamepads[]>{
     // return this.http.delete<Gamepads[]>(this.url+"/"+user);
-    return this.http.delete<Gamepads[]>(this.url+"/"+user._links.gamepad);
+    return this.http.delete<Gamepads[]>(user._links.gamepad.href);
   }
 
   setList(list:Gamepads[]){
