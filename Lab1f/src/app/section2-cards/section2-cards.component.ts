@@ -53,7 +53,7 @@ export class Section2CardsComponent implements OnInit {
         this.updateItems();      
       }
     );
-
+    this.onSelect(item);
   }
 
   onSelect(item:Gamepads){
