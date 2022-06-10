@@ -5,8 +5,9 @@
 
 
 
-
-        <div class="cards">
+        
+        <div class="cards" *ngIf="selectedTable == 1">
+            
             <div class="card" *ngFor="let ent of itemsList">
                 
                 <img class="card-img" id="card-img{{ent._links.gamepad}}" src="/assets/card.jpg" alt="">
@@ -18,10 +19,31 @@
                 <!-- <p class="bordertop" id="{{visibility[0]}}">{{ent.price}}</p> -->
                 <!-- <img class="moreinfobtn" (click) = "changeVisibility(0)" src="\assets\morebtn.png" alt=""> -->
             </div>
+            </div>
+
+
+
+            <div class="cards" *ngIf="selectedTable == 2">
+            <div class="card"  *ngFor="let ent of itemsList2">
+                
+                <img class="card-img" id="card-img{{ent._links.table2}}" src="/assets/card.jpg" alt="">
+                <span  class=card-title><strong>{{ent.name}}</strong></span>
+                <p  id="price">Price: {{ent.price}}$</p>
+                <p class="bordertop">{{ent.description}}</p>
+                
+                <b><div class="interactpartofcard"><img (click)="onSelect2(ent)" src="/assets/edit.png" alt=""><span (click)="deleteItem2(ent)" id="xxx"> X </span></div></b>
+                <!-- <p class="bordertop" id="{{visibility[0]}}">{{ent.price}}</p> -->
+                <!-- <img class="moreinfobtn" (click) = "changeVisibility(0)" src="\assets\morebtn.png" alt=""> -->
+            </div>
+            </div>
+      
             
+
+
+
         </div>
     </div>
-</div>
+
 <div class="section" id="Third">
     <div class="block">
         
