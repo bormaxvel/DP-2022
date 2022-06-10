@@ -5,8 +5,8 @@
 
 
 
-        
-        <div class="cards" *ngIf="selectedTable == 1">
+        <!-- ---------         table 1       ---------- -->
+        <div class="cards" *ngIf="selectedTable == 1"> 
             
             <div class="card" *ngFor="let ent of itemsList">
                 
@@ -16,13 +16,12 @@
                 <p class="bordertop">{{ent.description}}</p>
                 
                 <b><div class="interactpartofcard"><img (click)="onSelect(ent)" src="/assets/edit.png" alt=""><span (click)="deleteItem(ent)" id="xxx"> X </span></div></b>
-                <!-- <p class="bordertop" id="{{visibility[0]}}">{{ent.price}}</p> -->
-                <!-- <img class="moreinfobtn" (click) = "changeVisibility(0)" src="\assets\morebtn.png" alt=""> -->
+
             </div>
             </div>
 
 
-
+<!-- ---------         table 2       ---------- -->
             <div class="cards" *ngIf="selectedTable == 2">
             <div class="card"  *ngFor="let ent of itemsList2">
                 
@@ -32,8 +31,6 @@
                 <p class="bordertop">{{ent.description}}</p>
                 
                 <b><div class="interactpartofcard"><img (click)="onSelect2(ent)" src="/assets/edit.png" alt=""><span (click)="deleteItem2(ent)" id="xxx"> X </span></div></b>
-                <!-- <p class="bordertop" id="{{visibility[0]}}">{{ent.price}}</p> -->
-                <!-- <img class="moreinfobtn" (click) = "changeVisibility(0)" src="\assets\morebtn.png" alt=""> -->
             </div>
             </div>
       
@@ -45,7 +42,8 @@
     </div>
 
 <div class="section" id="Third">
-    <div class="block">
+    <!-- ---------         table 1       ---------- -->
+    <div class="block"  *ngIf="selectedTable == 1">
         
         <div class="interactblock">
         <h1>ADD</h1>
@@ -67,6 +65,34 @@
             <input type="number" class="feedback-input" placeholder="Price"  name="price" ngModel="{{selectedItem.price}}">
             <textarea class="feedback-input" placeholder="Description" name="description" ngModel="{{selectedItem.description}}"></textarea>
             <input type="hidden" class="feedback-input" name="link" ngModel="{{selectedItem.link}}">
+            <input type="submit"  value="Edit Gamepad">
+        </form> 
+        </div>
+    </div>
+
+<!-- ---------         table 2       ---------- -->
+    <div class="block"  *ngIf="selectedTable == 2">
+        
+        <div class="interactblock">
+        <h1>ADD</h1>
+        <form #form12="ngForm" (ngSubmit)="addItem2(form12.value)">
+            <input type="hidden" id="name" class="feedback-input" name="id"  ngModel="-1">
+            <input type="text" id="email" class="feedback-input" placeholder="Name" name="name"  ngModel="New Gamepad">
+            <input type="number" class="feedback-input" placeholder="Price" name="price" ngModel=23>
+            <textarea type="text" class="feedback-input" placeholder="Description" name="description" ngModel="A gamepad is a device used to control the gameplay of video games on the game console. "></textarea>
+            <input type="hidden" class="feedback-input" name="link" ngModel="">
+            <input type="submit" value="Add Gamepad">
+        </form>
+        </div>
+
+        <div class="interactblock" *ngIf="selectedItem2">
+        <h1>EDIT</h1>
+        <form  #form22="ngForm" (ngSubmit)="updateItem2(form22.value)">
+            <!-- <input type="hidden" id="name" class="feedback-input" name="id"  ngModel="{{selectedItem._links.gamepad}}"> -->
+            <input type="text" id="email" class="feedback-input" placeholder="Name" name="name"  ngModel="{{selectedItem2.name}}">
+            <input type="number" class="feedback-input" placeholder="Price"  name="price" ngModel="{{selectedItem2.price}}">
+            <textarea class="feedback-input" placeholder="Description" name="description" ngModel="{{selectedItem2.description}}"></textarea>
+            <input type="hidden" class="feedback-input" name="link" ngModel="{{selectedItem2.link}}">
             <input type="submit"  value="Edit Gamepad">
         </form> 
         </div>
