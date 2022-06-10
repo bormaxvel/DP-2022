@@ -16,12 +16,25 @@ export class Section2CardsComponent implements OnInit {
 
   showAddForm:boolean=false;
   selectedItem?:Gamepads;
+  selectedTable:number = 1;
 
   id:number = 1;
 
   constructor(private service:MainLogicService) { }
 
   ngOnInit(): void {
+    this.updateItems();
+    console.log(this.service.url);
+  }
+
+  changeTableLink1(){
+    this.service.url = "http://localhost:1155/gamepads";
+    console.log(this.service.url);
+    this.updateItems();
+  }
+  changeTableLink2(){
+    this.service.url = "http://localhost:1155/table2s";
+    console.log(this.service.url);
     this.updateItems();
   }
 
