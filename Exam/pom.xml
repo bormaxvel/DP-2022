@@ -8,11 +8,11 @@
 		<version>2.7.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>knu.fit.mit</groupId>
-	<artifactId>Lab5</artifactId>
+	<groupId>knu.fit.mit.21</groupId>
+	<artifactId>Exam</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Lab5</name>
-	<description>Demo project for Spring Boot lab5</description>
+	<name>Exam</name>
+	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>

@@ -1,4 +1,4 @@
-package lab5.items;
+package Exam.items;
 
 import java.io.Serializable;
 
