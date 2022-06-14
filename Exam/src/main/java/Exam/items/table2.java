@@ -5,65 +5,48 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
 @Entity
-@Table(name="table_2")
+@Table(name="amount")
 
 public class table2 implements Serializable{
 	
 	@Id
 	@GeneratedValue
 	int id;
-	String name;
-	int price;
-	String description;
-	String link;
-	
+	int amount;
+	@ManyToOne
+	@JoinColumn(name = "itemid", nullable = false)
+	private Gamepad gamepad;
 	
 	public table2() {
 		
 	}
 	
 	
-	public table2(int id, String name, int price, String description, String link) {
+	public table2(int id, int amount) {
 		this.id = id;
-		this.name = name;
-		this.price = price;
-		this.description = description;
-		this.link = link;
+		
+		this.amount = amount;
 	}
 
 
-	public int getPrice() {
-		return price;
+	
+
+
+	public int getAmount() {
+		return amount;
 	}
 
 
-	public void setPrice(int price) {
-		this.price = price;
+	public void setAmount(int amount) {
+		this.amount = amount;
 	}
 
-
-	public String getDescription() {
-		return description;
-	}
-
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-
-	public String getLink() {
-		return link;
-	}
-
-
-	public void setLink(String link) {
-		this.link = link;
-	}
 
 
 	public int getId() {
@@ -71,12 +54,6 @@ public class table2 implements Serializable{
 	}
 	public void setId(int id) {
 		this.id = id;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
 	}
 
 

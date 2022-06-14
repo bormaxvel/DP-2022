@@ -11,6 +11,5 @@ CREATE TABLE "items" (
 CREATE TABLE "amount" (
     "id" serial PRIMARY KEY,
     "itemid" INT UNIQUE REFERENCES items(id),
-    "amount" int,
-    "description" varchar
+    "amount" int
 );
